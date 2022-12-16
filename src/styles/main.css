@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-color: #2b282c;
+  background: url("https://playruneterra.com/assets/3ea4dfb6a024da0f7a847aab8ae1cd56baf0baa5/static/image/general/background-black-noise.jpg");
+}
+
+.bg-after::after {
+  height: 80%;
+  width: 100%;
+  position: absolute;
+  content: "";
+  bottom: -400px;
+  left: 0;
+  background: linear-gradient(transparent 28%,#e4e0da,#e4e0da);
+}
+
+.hack {
+  transform: translate3d(0px, -61px, 0px) !important;
+}
+
+
+.bg-cards {
+  overflow: hidden;
+  position: relative;
+  background: #151415
+    url("https://playruneterra.com/assets/3ea4dfb6a024da0f7a847aab8ae1cd56baf0baa5/static/image/general/background-black-noise.jpg")
+    0 0;
+  background-size: auto;
+}
+
+.bg-before::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  right: 0;
+  height: 100vw;
+  background: no-repeat
+    url("https://playruneterra.com/assets/3ea4dfb6a024da0f7a847aab8ae1cd56baf0baa5/static/image/general/background-home.jpg")
+    top;
+  background-size: auto;
+  background-size: cover;
+}
+
+.bg-card-after::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(207, 198, 191, 0) 10%, #cfc6bf 90%);
+}
+
+.bg-card {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(0deg, #c6b7a0, #cfc6bf 100%);
+}
+
+.bg {
+  background-color: rgba(31, 28, 31, 0.94);
+}
