@@ -1,7 +1,15 @@
 import React from "react";
+import { useFetch } from "../hooks/useFetch";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 import "../styles/main.css";
+import { CardTabs } from "./CardTabs";
 
 export const Cards = () => {
+
+  const { data: cardsTabs } = useFetch("http://localhost:3333/cardstabs");
+  console.log(cardsTabs);
+
   return (
     <div className="pt-40">
       <div className="text-center">
@@ -12,56 +20,27 @@ export const Cards = () => {
         </p>
       </div>
       <div>
-        <div className="mt-4 relative mx-auto w-[1344px] bg-cards ">
-          <ul
-            className="flex mx-auto justify-between gap-4 py-8 px-32  border-[#68482c] border-b text-center"
-          >
-            <li className="flex flex-col text-[#c0b6a0] opacity-30 uppercase font-bold text-[13px]">
-              Ilha das sombras
-              <span className="capitalize">Morte e Sacrificio</span>
-            </li>
-            <li className="flex flex-col text-[#c0b6a0] opacity-30 uppercase font-bold text-[13px]">
-              Ilha das sombras
-              <span className="capitalize">Morte e Sacrificio</span>
-            </li>
-            <li className="flex flex-col text-[#c0b6a0] opacity-30 uppercase font-bold text-[13px]">
-              Ilha das sombras
-              <span className="capitalize">Morte e Sacrificio</span>
-            </li>
-            <li className="flex flex-col text-[#c0b6a0] opacity-30 uppercase font-bold text-[13px]">
-              Ilha das sombras
-              <span className="capitalize">Morte e Sacrificio</span>
-            </li>
-            <li className="flex flex-col text-[#c0b6a0] opacity-30 uppercase font-bold text-[13px]">
-              Ilha das sombras
-              <span className="capitalize">Morte e Sacrificio</span>
-            </li>{" "}
-            <li className="flex flex-col text-[#c0b6a0] opacity-30 uppercase font-bold text-[13px]">
-              Ilha das sombras
-              <span className="capitalize">Morte e Sacrificio</span>
-            </li>
+        <div className="mt-4 relative mx-auto w-[1344px] bg-cards">
+          <ul className="flex mx-auto justify-between gap-4 py-8 px-32  border-[#68482c] border-b text-center">
+            {cardsTabs?.map((tabs) => {
+              return (
+                <li
+                  className="flex flex-col text-[#c0b6a0] opacity-30 uppercase font-bold text-[13px]"
+                >
+                  {tabs?.title}
+                  <span className="capitalize">{tabs.subtitle}</span>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="h-[30rem] bg-[#151415] w-[1344px] flex justify-center mx-auto border-[#68482c] border-b ">
-          <div className="flex mx-auto justify-center">
-            <div className="max-h-96 w-full flex gap-8 mt-16">
-              <img
-                className="h-96"
-                src="https://dd.b.pvp.net/latest/set5/pt_br/img/cards/05BC116.png"
-              />
-              <img
-                className="h-96"
-                src="https://dd.b.pvp.net/latest/set5/pt_br/img/cards/05BC116.png"
-              />
-              <img
-                className="h-96"
-                src="https://dd.b.pvp.net/latest/set5/pt_br/img/cards/05BC116.png"
-              />
-              <img
-                className="h-96"
-                src="https://dd.b.pvp.net/latest/set5/pt_br/img/cards/05BC116.png"
-              />
-            </div>
+          <div
+            className="flex mx-auto gap-12 justify-center"
+          >
+            {cardsTabs?.map((tabs) => {
+              return <CardTabs bannerUrl={tabs.bannerUrl} />;
+            })}
           </div>
         </div>
       </div>

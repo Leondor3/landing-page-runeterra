@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@import './sal.js/sal.css';
+@import './node_modules/sal.js/dist/sal.css';
+
+
 html {
   background-color: #2b282c;
   background: url("https://playruneterra.com/assets/3ea4dfb6a024da0f7a847aab8ae1cd56baf0baa5/static/image/general/background-black-noise.jpg");
@@ -14,20 +19,17 @@ html {
   content: "";
   bottom: -400px;
   left: 0;
-  background: linear-gradient(transparent 28%,#e4e0da,#e4e0da);
+  background: linear-gradient(transparent 28%, #e4e0da, #e4e0da);
 }
 
 .hack {
   transform: translate3d(0px, -61px, 0px) !important;
 }
 
-
 .bg-cards {
   overflow: hidden;
   position: relative;
-  background: #151415
-    url("https://playruneterra.com/assets/3ea4dfb6a024da0f7a847aab8ae1cd56baf0baa5/static/image/general/background-black-noise.jpg")
-    0 0;
+  background: #151415;
   background-size: auto;
 }
 

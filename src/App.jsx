@@ -8,6 +8,7 @@ import { Menu } from "./components/Menu";
 import { Update } from "./components/Update";
 import "./styles/main.css";
 
+
 function App() {
   return (
     <div className="">

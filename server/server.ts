@@ -31,6 +31,20 @@ app.get('/slider', async (request, response) => {
   return response.json(slider);
 })
 
+app.get('/cardstabs', async (request, response) => {
+
+  const cardstabs = await prisma.cardsTabs.findMany({
+    select: {
+      title: true,
+      subtitle: true,
+      bannerUrl: true,
+    },
+  
+  })
+
+  return response.json(cardstabs);
+})
+
 app.listen(3333, () => {
     console.log('Servidor está funcionando')
 })

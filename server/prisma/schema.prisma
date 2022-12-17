@@ -11,17 +11,27 @@ datasource db {
 }
 
 model Cards {
-  id String @id @default(uuid())
-  title String
-  bannerUrl String
+  id           String @id @default(uuid())
+  title        String
+  bannerUrl    String
   subparagraph String
 
   @@map("cards")
 }
 
 model Slider {
-  id String @id @default(uuid())
+  id          String @id @default(uuid())
   bannerSlide String
 
   @@map("slider")
+}
+
+model CardsTabs {
+  id        String @id @default(uuid())
+  title     String
+  subtitle  String
+  bannerUrl String
+
+  @@map("cardstabs")
+
 }

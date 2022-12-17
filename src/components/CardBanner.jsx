@@ -3,10 +3,10 @@ import React from "react";
 export function CardBanner(props) {
   return (
     <React.Fragment>
-      <div className="flex flex-col">
+      <div data-sal="fade" className="flex flex-col">
         <div className="relative w-full bg-card-after">
           <img
-            className="w-full object-cover h-[260px]"
+            className="w-full object-cover h-[350px]"
             src={props.bannerUrl}
           />
         </div>

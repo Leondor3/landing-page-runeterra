@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { useFetch } from "../hooks/useFetch";
@@ -8,6 +8,7 @@ export const SliderBanner = () => {
   const { data: sliderCard } = useFetch("http://localhost:3333/slider");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
+
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
     slideChanged(slider) {
@@ -16,7 +17,7 @@ export const SliderBanner = () => {
     created() {
       setLoaded(true);
     },
-  });
+  }); 
 
   function Arrow(props) {
     const disabeld = props.disabled ? " arrow--disabled" : "";
@@ -46,17 +47,19 @@ export const SliderBanner = () => {
 
   return (
     <div className="pt-40">
-      <div className="text-center mb-8">
-        <h2 className="text-white text-3xl">ESCOLHA SEUS CAMPEÕES</h2>
-        <p className="text-[#c0b6a0] text-1xl pt-4">
+      <div className="text-center mb-16">
+        <h2 className="text-white text-4xl tracking-wider leading-5 font-[Oswaldo]">
+          ESCOLHA SEUS CAMPEÕES
+        </h2>
+        <p className="text-[#c0b6a0] text-1xl pt-8 font-semibold">
           Quem você levará a batalha?
         </p>
       </div>
       <div className="w-[1230px] mx-auto keen-slider" ref={sliderRef}>
-        {sliderCard?.map((item) => {
-          return <SliderCard bannerSlide={item?.bannerSlide} />;
+        {sliderCard?.map((item, index) => {
+          return <SliderCard bannerSlide={item?.bannerSlide} index={index} />;
         })}
-        {/* {loaded && instanceRef.current && (
+       {/* {loaded && instanceRef.current && (
           <>
             <Arrow
               left
@@ -75,7 +78,7 @@ export const SliderBanner = () => {
               }
             />
           </>
-        )} */}
+        )}  */}
       </div>
       <div className="z-10 h-96 w-full absolute bottom-[30rem] flex-shrink-0 -scale-x-100 opacity-20 left-0">
         <img
@@ -99,6 +102,10 @@ export const SliderBanner = () => {
             Com o poder de Noxus, esmague um inimigo ferido e destrua-o por
             completo com uma execução implacável.
           </p>
+          <img
+            className="absolute right-36 mr-12 bottom-14 h-20 w-20"
+            src="https://images.contentstack.io/v3/assets/blta38dcaae86f2ef5c/blteaf99763b9f45590/5e850560ca20f06480e5e544/Noxus.png"
+          />
         </div>
       </div>
       <div className="absolute right-60 bottom-2 h-96 w-60 z-40">

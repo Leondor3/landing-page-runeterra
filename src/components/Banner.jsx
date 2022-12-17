@@ -12,8 +12,10 @@ export function Banner() {
       </div>
       <div className="">
         <div className="z-10 pt-80 -ml-[80px] absolute bottom-0 left-1/2 translate-x-0 translate-y-2/4">
-          <button className="p-4 flex items-center uppercase m-4 h-10 bg-background-button rounded-md text-white">
-            Jogar agora
+          <button className="p-4 flex items-center uppercase m-4 h-10 bg-yellow-600 rounded-md text-white">
+            <span className="font-[Oswaldo] font-bold leading-5 tracking-tighter">
+              Jogar agora
+            </span>
           </button>
         </div>
       </div>
@@ -21,16 +23,10 @@ export function Banner() {
         <span className="z-10 uppercase text-sm font-bold text-[#696053]">
           DISPONIVEL EM
         </span>
-        <div className="flex flex-row gap-4 z-20">
-          <button className="p-4 flex items-center rounded-lg h-10 bg-zinc-900 text-white">
-            Jogar agora
-          </button>
-          <button className="p-4 flex items-center rounded-lg h-10 bg-zinc-900 text-white">
-            Jogar agora
-          </button>
-          <button className="p-4 flex items-center rounded-lg h-10 bg-zinc-900 text-white">
-            Jogar agora{" "}
-          </button>
+        <div className="flex flex-row items-center justify-center -mt-10 gap-4 z-20">
+          <img className="h-32 w-32" src="https://playruneterra.com/assets/3ea4dfb6a024da0f7a847aab8ae1cd56baf0baa5/static/image/badges/pc-version-pt-br.svg" />
+          <img className="h-32 w-32" src="https://playruneterra.com/assets/3ea4dfb6a024da0f7a847aab8ae1cd56baf0baa5/static/image/badges/app-store-pt-br.svg" />
+          <img className="h-32 w-32" src="https://playruneterra.com/assets/3ea4dfb6a024da0f7a847aab8ae1cd56baf0baa5/static/image/badges/google-play-pt_get.svg" />
         </div>
       </div>
     </div>
