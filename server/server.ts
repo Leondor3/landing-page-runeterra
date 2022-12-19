@@ -31,18 +31,29 @@ app.get('/slider', async (request, response) => {
   return response.json(slider);
 })
 
-app.get('/cardstabs', async (request, response) => {
+// app.get('/cardstabs', async (request, response) => {
 
-  const cardstabs = await prisma.cardsTabs.findMany({
-    select: {
-      title: true,
-      subtitle: true,
-      bannerUrl: true,
-    },
+//   const cardstabs = await prisma.cardsTabs.findMany({
+//     select: {
+//       title: true,
+//       subtitle: true,
+//       bannerUrl: true,
+//     },
   
+//   })
+
+//   return response.json(cardstabs);
+// })
+
+app.get('/region', async (request, response) => {
+
+  const region = await prisma.region.findMany({
+    include: {
+        cardsTabs: true,
+      }
   })
 
-  return response.json(cardstabs);
+  return response.json(region);
 })
 
 app.listen(3333, () => {

@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@import './sal.js/sal.css';
-@import './node_modules/sal.js/dist/sal.css';
-
-
 html {
   background-color: #2b282c;
   background: url("https://playruneterra.com/assets/3ea4dfb6a024da0f7a847aab8ae1cd56baf0baa5/static/image/general/background-black-noise.jpg");

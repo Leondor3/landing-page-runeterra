@@ -26,12 +26,22 @@ model Slider {
   @@map("slider")
 }
 
+model Region {
+  id       String @id @default(uuid())
+  title    String @unique
+  subtitle String
+
+  cardsTabs CardsTabs[]
+
+  @@map("region")
+}
+
 model CardsTabs {
   id        String @id @default(uuid())
+  regionId  String
   title     String
   subtitle  String
   bannerUrl String
 
-  @@map("cardstabs")
-
+  region Region @relation(fields: [regionId], references: [id])
 }
